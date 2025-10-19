@@ -9,6 +9,11 @@ vim.keymap.set("n", "<space>x", ":.lua<CR>") --excute lua code in current line
 vim.keymap.set("v", "<space>x", ":lua<CR>") --excute lua code in visual selection
 
 
+---------------------- OPTIONS -------------------------
+vim.opt.clipboard = "unnamedplus"
+
+
+
 ---------------------- CUSTOM THINGS -------------------
 
 -- Highlight when yanking (copying) text
