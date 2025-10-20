@@ -2,6 +2,9 @@
 --Plugins are loaded from individual files in lua/config/plugins
 require("config.lazy")
 
+--activate relevant lsps
+vim.lsp.enable({'lua'})
+
 
 ---------------------- KEYMAPS -------------------------
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>") --source current file
@@ -11,6 +14,8 @@ vim.keymap.set("v", "<space>x", ":lua<CR>") --excute lua code in visual selectio
 
 ---------------------- OPTIONS -------------------------
 vim.opt.clipboard = "unnamedplus"
+
+vim.diagnostic.config({virtual_text = true}) --lsp warnings for the whole buffer
 
 
 
