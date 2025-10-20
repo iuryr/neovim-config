@@ -3,7 +3,7 @@
 require("config.lazy")
 
 --activate relevant lsps
-vim.lsp.enable({'lua'})
+vim.lsp.enable({'lua', 'basedpyright'})
 
 
 ---------------------- KEYMAPS -------------------------
