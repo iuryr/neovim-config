@@ -10,9 +10,9 @@ require("config.lsp")
 vim.lsp.enable({ 'lua', 'basedpyright' })
 
 ---------------------- KEYMAPS -------------------------
-vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>") --source current file
-vim.keymap.set("n", "<space>x", ":.lua<CR>")                --execute lua code in current line
-vim.keymap.set("v", "<space>x", ":lua<CR>")                 --execute lua code in visual selection
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")                                     --source current file
+vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = 'E[x]ecute Lua code in current line' })    --execute lua code in current line
+vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = 'E[x]ecute Lua code in visual selection' }) --execute lua code in visual selection
 
 ---------------------- OPTIONS -------------------------
 vim.opt.clipboard = "unnamedplus"
