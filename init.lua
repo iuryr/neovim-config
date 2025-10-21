@@ -2,20 +2,21 @@
 --Plugins are loaded from individual files in lua/config/plugins
 require("config.lazy")
 
---activate relevant lsps
-vim.lsp.enable({'lua', 'basedpyright'})
+--Load lsp configurations (mostly autocmds) that are useful regardless of language
+--Language specific configurations are at lsp/implementation.lua files
+require("config.lsp")
 
+--activate relevant lsps
+vim.lsp.enable({ 'lua', 'basedpyright' })
 
 ---------------------- KEYMAPS -------------------------
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>") --source current file
-vim.keymap.set("n", "<space>x", ":.lua<CR>") --excute lua code in current line
-vim.keymap.set("v", "<space>x", ":lua<CR>") --excute lua code in visual selection
-
+vim.keymap.set("n", "<space>x", ":.lua<CR>")                --execute lua code in current line
+vim.keymap.set("v", "<space>x", ":lua<CR>")                 --execute lua code in visual selection
 
 ---------------------- OPTIONS -------------------------
 vim.opt.clipboard = "unnamedplus"
-
-vim.diagnostic.config({virtual_text = true}) --lsp warnings for the whole buffer
+vim.diagnostic.config({ virtual_text = true }) --lsp warnings for the whole buffer
 
 
 
@@ -26,9 +27,9 @@ vim.diagnostic.config({virtual_text = true}) --lsp warnings for the whole buffer
 -- See `help: vim.highlight.on_yank()`
 -- mechanics: listen to the TextYankPost event and calls callback function when it happens
 vim.api.nvim_create_autocmd('TextYankPost', {
-	desc = 'Highlight when yanking (copying) text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-	callback = function()
-		vim.hl.on_yank()
-	end,
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
 })
