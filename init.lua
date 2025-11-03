@@ -7,7 +7,7 @@ require("config.lazy")
 require("config.lsp")
 
 --activate relevant lsps
-vim.lsp.enable({ 'lua', 'basedpyright' })
+vim.lsp.enable({ 'lua', 'basedpyright', 'clangd' })
 
 ---------------------- KEYMAPS -------------------------
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")                                     --source current file
