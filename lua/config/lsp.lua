@@ -1,5 +1,5 @@
--- As of now, this file just register autocmd that, on save, formats buffer if
--- said buffer is attached to an LSP that supports formatting
+-- Configs that are global to all LSP, regardless of language.
+-- The callbacks are called whenever a language server attaches to a particular buffer
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -37,5 +37,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
     nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
     nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
   end
 })
