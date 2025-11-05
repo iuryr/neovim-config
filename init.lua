@@ -25,26 +25,20 @@ vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = -1, float = t
   { desc = "Go to previous diagnostic message" })
 
 ---------------------- OPTIONS -------------------------
+-- sync with system clipboard
 vim.opt.clipboard = "unnamedplus"
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-
+-- one column in the gutter (for gitsigns plugin)
+vim.o.signcolumn = "yes:1"
 --global diagnostic config
 vim.diagnostic.config {
   severity_sort = true,
   float = { border = 'rounded', source = 'if_many' },
   underline = { severity = vim.diagnostic.severity.ERROR },
-  -- I do not have nerd font now. This excerpt is from kickstart.nvim
-  signs = vim.g.have_nerd_font and {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '󰅚 ',
-      [vim.diagnostic.severity.WARN] = '󰀪 ',
-      [vim.diagnostic.severity.INFO] = '󰋽 ',
-      [vim.diagnostic.severity.HINT] = '󰌶 ',
-    },
-  } or {},
+  signs = false,
   virtual_text = {
     source = 'if_many',
     spacing = 2,
