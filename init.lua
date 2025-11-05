@@ -5,7 +5,6 @@ require("config.lazy")
 --Load lsp configurations (mostly autocmds) that are useful regardless of language
 --Language specific configurations are at lsp/implementation.lua files
 require("config.lsp")
-
 --activate relevant lsps
 vim.lsp.enable({ 'lua', 'basedpyright', 'clangd' })
 
