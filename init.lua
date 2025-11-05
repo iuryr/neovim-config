@@ -33,6 +33,13 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 -- one column in the gutter (for gitsigns plugin)
 vim.o.signcolumn = "yes:1"
+
+-- show which line the cursor is on
+vim.o.cursorline = true
+
+-- Minimal number of screen lines to keep above and below the cursor
+vim.o.scrolloff = 10
+
 --global diagnostic config
 vim.diagnostic.config {
   severity_sort = true,
